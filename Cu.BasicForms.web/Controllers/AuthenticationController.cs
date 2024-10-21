@@ -15,8 +15,15 @@ namespace Cu.BasicForms.web.Controllers
         [HttpPost]
         public IActionResult Login(AuthenticationLoginViewModel authenticationLoginViewModel)
         {
+            //validate the data
+            //check the modelstate
+            if (!ModelState.IsValid)
+            {
+                //validation errors found!
+                return View(authenticationLoginViewModel);
+            }
             //process the form
-            //redirect to homepage
+            //and redirect 
             return RedirectToAction("Index","home");
         }
         [HttpGet]
@@ -42,6 +49,13 @@ namespace Cu.BasicForms.web.Controllers
         public IActionResult Register(AuthenticationRegisterViewModel 
             authenticationRegisterViewModel)
         {
+            //validate the data
+            //check the modelstate
+            if(!ModelState.IsValid)
+            {
+                //validation errors found!
+                return View(authenticationRegisterViewModel);
+            }
             //process the form
             //and redirect 
             return RedirectToAction("Registered","Authentication");

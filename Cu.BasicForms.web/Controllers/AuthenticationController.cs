@@ -23,8 +23,17 @@ namespace Cu.BasicForms.web.Controllers
                 return View(authenticationLoginViewModel);
             }
             //process the form
-            //and redirect 
-            return RedirectToAction("Index","home");
+            //check credentials
+            if(authenticationLoginViewModel.Username.Equals("mil@mil.com")
+                && authenticationLoginViewModel.Password.Equals("Test123?"))
+            {
+                //and redirect 
+                return RedirectToAction("Index", "home");
+            }
+            //wrong credentials!
+            //add custom error
+            ModelState.AddModelError("", "Wrong credentials!");
+            return View(authenticationLoginViewModel);
         }
         [HttpGet]
         public IActionResult Register() 

@@ -19,6 +19,11 @@
                 <select asp-for="ProvinceId" asp-items="@Model.Provinces" class="form-select">
                 </select>
             </div>
+            <div class="form-group">
+                <label asp-for="DateOfBirth"></label>
+                <input asp-for="DateOfBirth" class="form-control">
+                <span class="text-danger" asp-validation-for="DateOfBirth"></span>
+            </div>
             <button type="submit" class="btn btn-primary mt-1 mb-1">Register</button>
         </form>
     </div>

@@ -21,5 +21,8 @@ namespace Cu.BasicForms.web.ViewModels
         [Display(Name = "Province")]
         public int ProvinceId { get; set; }
         public IEnumerable<SelectListItem> Provinces { get; set; }
+        [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Please provide a date of birth!")]
+        public DateTime DateOfBirth { get; set; }
     }
 }

@@ -52,6 +52,7 @@ namespace Cu.BasicForms.web.Controllers
                     new SelectListItem {Text = "Limburg", Value = "3" },
                     new SelectListItem {Text = "Henegouwen", Value = "4" },
                 };
+            authenticationRegisterViewModel.DateOfBirth = DateTime.Now;
             return View(authenticationRegisterViewModel);
         }
         [HttpPost]
@@ -60,7 +61,12 @@ namespace Cu.BasicForms.web.Controllers
         {
             //validate the data
             //check the modelstate
-            if(!ModelState.IsValid)
+            if (authenticationRegisterViewModel.DateOfBirth > DateTime.Now)
+            {
+                //custom error
+                ModelState.AddModelError("DateOfBirth", "You cannot be born in the future");
+            }
+            if (!ModelState.IsValid)
             {
                 //validation errors found!
                 return View(authenticationRegisterViewModel);

@@ -1,0 +1,25 @@
+﻿@model AuthenticationRegisterViewModel
+<div class="row">
+    <div class="col col-lg-5 mx-auto border border-1 rounded rounded-2">
+        <form asp-controller="Authentication" asp-action="Register">
+            <div class="form-group">
+                <label asp-for="Username"></label>
+                <input asp-for="Username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="ProvinceId"></label>
+                <select asp-for="ProvinceId" asp-items="@Model.Provinces" class="form-select">
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mt-1 mb-1">Register</button>
+        </form>
+    </div>
+</div>
